@@ -48,7 +48,3 @@ begin
     else
         IsInTree := true
 end;
-
-var
-    root: TreeNodePtr = nil;
-
