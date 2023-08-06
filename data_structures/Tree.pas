@@ -1,0 +1,11 @@
+program TreeExample;
+
+type
+    TreeNodePtr = ^TreeNode;
+    TreeNode = record
+        data: longint;
+        left, right: TreeNodePtr;
+    end;
+
+var
+    root: TreeNodePtr = nil;

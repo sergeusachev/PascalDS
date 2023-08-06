@@ -1,4 +1,4 @@
-program stack_of_long;
+program StackOfLong;
 type
     LongItemPtr = ^LongItem;
     LongItem = record
@@ -42,21 +42,3 @@ function SOLIsEmpty(var stack: StackOfLongints): boolean;
 begin
     SOLIsEmpty := stack = nil;
 end;
-{ program starts }
-var
-    s: StackOfLongints;
-    n: longint;
-begin
-    SOLInit(s);
-    while not eof do
-    begin
-        readln(n);
-        SOLPush(s, n);
-    end;
-
-    while not SOLIsEmpty(s) do
-    begin
-        SOLPop(s, n);
-        write(n, ' ');
-    end
-end.

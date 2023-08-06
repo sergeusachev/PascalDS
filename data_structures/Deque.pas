@@ -1,4 +1,4 @@
-program double_link_list;
+program DequeOfLong;
 
 type
     LongItem2Ptr = ^LongItem2;
@@ -106,25 +106,3 @@ function LongDequeIsEmpty(var deque: LongDeque): boolean;
 begin
     LongDequeIsEmpty := deque.first = nil;
 end;
-{ program starts }
-var
-    d: LongDeque;
-    n: longint;
-begin
-    LongDequeInit(d);
-    while not eof do
-    begin
-        readln(n);
-        //adding to deque(front or back) 
-        LongDequePushFront(d, n);
-
-    end;
-   
-    while not LongDequeIsEmpty(d) do
-    begin
-        //getting from deque(front or back)
-        LongDequePopBack(d, n);
-        write(n, ' ');
-    end;
-    writeln;
-end.

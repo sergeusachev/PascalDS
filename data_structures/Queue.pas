@@ -1,4 +1,4 @@
-program stack_of_long;
+program QueueOfLong;
 type
     LongItemPtr = ^LongItem;
     LongItem = record
@@ -53,22 +53,3 @@ function QOLIsEmpty(var queue: QueueOfLongints): boolean;
 begin
     QOLIsEmpty := queue.first = nil;
 end;
-{ program starts }
-var
-    q: QueueOfLongints;
-    n: longint;
-begin
-    QOLInit(q);
-    while not eof do
-    begin
-        readln(n);
-        QOLPut(q, n);
-    end;
-
-    while not QOLIsEmpty(q) do
-    begin
-        QOLGet(q, n);
-        write(n, ' ');
-    end;
-    writeln;
-end.
