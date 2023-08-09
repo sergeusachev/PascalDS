@@ -1,6 +1,7 @@
 program ExamplePointerOnPointer;
+uses ds_singlelinkedlist;
 
-procedure RemoveNegativesNumbers(var first: LongItemPtr);
+procedure RemoveNegativeNumbers(var first: LongItemPtr);
 var
     tmp: LongItemPtr;
     pp: ^LongItemPtr;

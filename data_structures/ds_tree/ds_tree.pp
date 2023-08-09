@@ -1,5 +1,7 @@
 program TreeOfLong;
+unit ds_tree;
 
+interface
 type
     TreeNodePtr = ^TreeNode;
     TreeNode = record
@@ -7,6 +9,11 @@ type
         left, right: TreeNodePtr;
     end;
 
+function SumTree(p: TreeNodePtr): longint;
+function AddToTree(var p: TreeNodePtr; value: longint): boolean;
+function IsInTree(p: TreeNodePtr; value: longint): boolean;
+
+implementation
 function SumTree(p: TreeNodePtr): longint;
 begin
     if p = nil then
@@ -48,3 +55,5 @@ begin
     else
         IsInTree := true
 end;
+
+end. //end of the module

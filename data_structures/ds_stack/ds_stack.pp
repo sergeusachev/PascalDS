@@ -1,4 +1,6 @@
 program StackOfLong;
+unit ds_stack;
+
 type
     LongItemPtr = ^LongItem;
     LongItem = record

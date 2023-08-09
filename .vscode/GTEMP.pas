@@ -1,50 +1,58 @@
-program TreeOfLong;
+unit ds_singlelinkedlist;
+
+interface
 
 type
-    TreeNodePtr = ^TreeNode;
-    TreeNode = record
+    LongItemPtr = ^LongItem;
+    LongItem = record
         data: longint;
-        left, right: TreeNodePtr;
+        next: LongItemPtr;
     end;
 
-function SumTree(p: TreeNodePtr): longint;
+procedure InitList(var first: LongItemPtr; var last: LongItemPtr);
+procedure AddToList(var first: LongItemPtr; var last: LongItemPtr; n: longint);
+procedure PrintList(var first: LongItemPtr);
+
+implementation
+
+procedure InitList(var first: LongItemPtr; var last: LongItemPtr);
 begin
-    if p = nil then
-        SumTree := 0;
-    else 
-        SumTree := SumTree(p^.left) + p^.data + SumTree(p^.right)
+    first := nil;
+    last := nil;
 end;
 
-function AddToTree(var p: TreeNodePtr; value: longint): boolean;
+procedure AddToList(var first: LongItemPtr; var last: LongItemPtr; n: longint);
+var
+    tmp: LongItemPtr;
 begin
-    if p = nil then
+    if first = nil then
+        begin
+            new(first);
+            first^.data := n;
+            first^.next := nil;
+            last := first;
+        end
+    else
+        begin
+            new(tmp);
+            tmp^.data := n;
+            tmp^.next := nil;
+            last^.next := tmp;
+            last := tmp;
+        end
+end;
+
+procedure PrintList(var first: LongItemPtr);
+var
+    tmp: LongItemPtr;
+begin
+    tmp := first;
+    while tmp <> nil do
     begin
-        new(p);
-        p^.data := value;
-        p^.left := nil;
-        p^.right := nil;
-        AddToTree := true;
-    end
-    else
-    if value < p^.data then
-        AddToTree := AddToTree(p^.left, value)
-    else
-    if value > p^.data then
-        AddToTree := AddToTree(p^.right, value)
-    else
-        AddToTree := false
+        write(tmp^.data, ' ');
+        tmp := tmp^.next;
+    end;
+    writeln;
 end;
 
-function IsInTree(p: TreeNodePtr; value: longint): boolean;
-begin
-    if p = nil then
-        IsInTree := false
-    else
-    if value < p^.data then
-        IsInTree := IsInTree(p^.left, value)
-    else
-    if value > p^.data then
-        IsInTree := IsInTree(p^.right, value) 
-    else
-        IsInTree := true
-end;
+end. //end of the module

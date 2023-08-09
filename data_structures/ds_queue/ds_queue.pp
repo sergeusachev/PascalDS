@@ -1,4 +1,6 @@
 program QueueOfLong;
+unit ds_queue;
+
 type
     LongItemPtr = ^LongItem;
     LongItem = record

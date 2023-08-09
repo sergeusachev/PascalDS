@@ -1,4 +1,6 @@
-program SingleLinkedList;
+unit ds_singlelinkedlist;
+
+interface
 
 type
     LongItemPtr = ^LongItem;
@@ -6,6 +8,12 @@ type
         data: longint;
         next: LongItemPtr;
     end;
+
+procedure InitList(var first: LongItemPtr; var last: LongItemPtr);
+procedure AddToList(var first: LongItemPtr; var last: LongItemPtr; n: longint);
+procedure PrintList(var first: LongItemPtr);
+
+implementation
 
 procedure InitList(var first: LongItemPtr; var last: LongItemPtr);
 begin
@@ -46,3 +54,5 @@ begin
     end;
     writeln;
 end;
+
+end. //end of the module

@@ -1,4 +1,5 @@
 program DequeOfLong;
+unit ds_deque;
 
 type
     LongItem2Ptr = ^LongItem2;
