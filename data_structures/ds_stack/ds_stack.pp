@@ -1,6 +1,6 @@
-program StackOfLong;
 unit ds_stack;
 
+interface
 type
     LongItemPtr = ^LongItem;
     LongItem = record
@@ -9,6 +9,12 @@ type
     end;
     StackOfLongints = LongItemPtr;
 
+procedure SOLInit(var stack: StackOfLongints);
+procedure SOLPush(var stack: StackOfLongints; n: longint);
+function SOLPop(var stack: StackOfLongints; var n: longint): boolean;
+function SOLIsEmpty(var stack: StackOfLongints): boolean;
+
+implementation
 procedure SOLInit(var stack: StackOfLongints);
 begin
     stack := nil;
@@ -43,4 +49,6 @@ end;
 function SOLIsEmpty(var stack: StackOfLongints): boolean;
 begin
     SOLIsEmpty := stack = nil;
-end;
+end; 
+
+end. //end of the module

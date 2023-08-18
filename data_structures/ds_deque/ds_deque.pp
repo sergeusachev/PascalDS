@@ -1,6 +1,6 @@
-program DequeOfLong;
 unit ds_deque;
 
+interface
 type
     LongItem2Ptr = ^LongItem2;
     LongItem2 = record
@@ -12,6 +12,16 @@ type
         first, last: LongItem2Ptr;
     end;
 
+procedure LongDequeInit(var deque: LongDeque);
+procedure InsertLeft(var deque: LongDeque; var current: LongItem2Ptr; n: longint);
+procedure InsertRight(var deque: LongDeque; var current: LongItem2Ptr; n: longint);
+procedure LongDequePushFront(var deque: LongDeque; n: longint);
+procedure LongDequePushBack(var deque: LongDeque; n: longint);
+function LongDequePopFront(var deque: LongDeque; var n: longint): boolean;
+function LongDequePopBack(var deque: LongDeque; var n: longint): boolean;
+function LongDequeIsEmpty(var deque: LongDeque): boolean;
+
+implementation
 procedure LongDequeInit(var deque: LongDeque);
 begin
     deque.first := nil;
@@ -107,3 +117,5 @@ function LongDequeIsEmpty(var deque: LongDeque): boolean;
 begin
     LongDequeIsEmpty := deque.first = nil;
 end;
+
+end. //end of the module

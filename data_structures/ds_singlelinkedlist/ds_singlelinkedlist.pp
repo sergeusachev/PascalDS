@@ -1,7 +1,6 @@
 unit ds_singlelinkedlist;
 
 interface
-
 type
     LongItemPtr = ^LongItem;
     LongItem = record

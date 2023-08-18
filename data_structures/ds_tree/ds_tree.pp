@@ -1,4 +1,3 @@
-program TreeOfLong;
 unit ds_tree;
 
 interface

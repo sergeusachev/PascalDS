@@ -1,6 +1,6 @@
-program QueueOfLong;
 unit ds_queue;
 
+interface
 type
     LongItemPtr = ^LongItem;
     LongItem = record
@@ -11,6 +11,12 @@ type
         first, last: LongItemPtr;
     end;
 
+procedure QOLInit(var queue: QueueOfLongints);
+procedure QOLPut(var queue: QueueOfLongints; n: longint);
+function QOLGet(var queue: QueueOfLongints; var n: longint): boolean;
+function QOLIsEmpty(var queue: QueueOfLongints): boolean;
+
+implementation
 procedure QOLInit(var queue: QueueOfLongints);
 begin
     queue.first := nil;
@@ -55,3 +61,5 @@ function QOLIsEmpty(var queue: QueueOfLongints): boolean;
 begin
     QOLIsEmpty := queue.first = nil;
 end;
+
+end. //end of the module
